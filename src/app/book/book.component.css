@@ -1,0 +1,13 @@
+.details-book {
+  display: flex;
+  justify-content: center;
+
+  margin-left:290px;
+  height: 120vh;
+  width: 900px;
+}
+.md-unstyled-image img {
+  max-width: 100%;
+  width: 350px;
+  height: 300px; /* needs to be important because md-card also sets it that way */
+}

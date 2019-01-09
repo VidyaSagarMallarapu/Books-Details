@@ -1,0 +1,23 @@
+<nav class="navbar navbar-dark bg-dark mb-5">
+  <a class="navbar-brand" [routerLink]="['/home']" skipLocationChange>Book Notes </a>
+  <div class="navbar-expand mr-auto">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link " [routerLink]="['/home']" skipLocationChange>Home</a>
+      <a class="nav-item nav-link" [routerLink]="['/books']" skipLocationChange>Books</a>
+      <a class="nav-item nav-link" [routerLink]="['/add-book']" skipLocationChange>Add Book</a>
+
+
+
+
+    </div>
+  </div>
+  
+  <button color='warn' mat-button [matMenuTriggerFor]="menu">about</button>
+  <mat-menu #menu="matMenu">
+    <button (click)="login()" *ngIf="authenticated" mat-menu-item> login </button>
+    <button (click)="logout()" *ngIf="! authenticated" mat-menu-item> log out</button>
+  </mat-menu>
+
+
+
+</nav>

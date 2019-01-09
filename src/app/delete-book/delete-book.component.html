@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+<mat-toolbar color="warn"> Delete confirmation </mat-toolbar>
+<div *ngIf="!bookTitle" class="spinner">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div class="delete-confirm" *ngIf="bookTitle">
+  <mat-toolbar >
+    <mat-toolbar-row color="primary">
+      <span>You are about to delete the book: "{{bookTitle}}".</span>
+</mat-toolbar-row>
+        
+          {{bookDescription}}
+        
+
+        <mat-toolbar-row>
+          <button [routerLink]="['/book/'+id]" skipLocationChange mat-button color="accent"> Go Back </button>
+          <button (click)="removeBook()" mat-raised-button color="warn">  Delete Permanently </button>
+        </mat-toolbar-row>
+</mat-toolbar>
+</div>

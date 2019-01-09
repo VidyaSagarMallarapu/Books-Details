@@ -1,0 +1,13 @@
+mat-toolbar {
+  height: 10px !important;
+  min-height: 50px !important;
+}
+.md-unstyled-image img {
+  max-width: 100%;
+  width: 350px;
+  height: 300px; /* needs to be important because md-card also sets it that way */
+}
+mat-card {
+  width: calc(100% -50px);
+  height: calc(100% - 50px);
+}

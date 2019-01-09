@@ -1,0 +1,14 @@
+.page {
+  height: 60vh;
+  color: red;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.page2 {
+  height: 1vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-left:40px;
+}

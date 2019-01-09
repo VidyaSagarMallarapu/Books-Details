@@ -1,0 +1,65 @@
+<app-navbar></app-navbar>
+<mat-toolbar> Add a New Book </mat-toolbar>
+
+<div class="add-book-form">
+  <mat-card fxFlex="33" style="margin: 15px;" layout-align="center center">
+    <a [routerLink]="['/books']">Back</a>
+    <form (submit)="submitAdd()" #myForm="ngForm">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Book Title" [(ngModel)]="title" name="title" required>
+      </mat-form-field>
+      <br />
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Book Author" [(ngModel)]="author" name="author" required>
+      </mat-form-field>
+      <br />
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Book Price" type="number" [(ngModel)]="price" name="price" required>
+      </mat-form-field>
+
+      <table class="full-width">
+        <tr>
+          <td>
+            <mat-form-field>
+              <input matInput [matDatepicker]="dateadded" placeholder="Date Added"  (dateInput)="addedDate('input', $event)" (dateChange)="addedDate('change', $event)" required>
+              <mat-datepicker-toggle matSuffix [for]="dateadded"></mat-datepicker-toggle>
+              <mat-datepicker #dateadded ></mat-datepicker>
+            </mat-form-field>
+
+
+          </td>
+          <td>
+            <mat-form-field>
+              <input matInput [matDatepicker]="dateread" placeholder="Date Read" (dateInput)="readDate('input', $event)" (dateChange)="readDate('change', $event)">
+              <mat-datepicker-toggle matSuffix [for]="dateread"></mat-datepicker-toggle>
+              <mat-datepicker #dateread></mat-datepicker>
+            </mat-form-field>
+
+
+          </td>
+        </tr>
+      </table>
+
+      <div *ngIf="isRead">
+        <mat-form-field class="full-width">
+          <textarea matInput rows="5" placeholder="Book Description" [(ngModel)]="description" name="description"></textarea>
+        </mat-form-field>
+        <br />
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Book Rate (1-5)" min="1" max="5" step="0.1" type="number" [(ngModel)]="rate" name="rate">
+        </mat-form-field>
+      </div>
+      <br />
+      <mat-form-field class="third-width">
+        <input matInput placeholder="Image Url (enter image URL)" [(ngModel)]="imageUrl" name="imageUrl" >
+      </mat-form-field><br>
+                      
+                         <img  width="300" height="300" src="{{imageUrl}}" alt="{{title}}">
+                       
+      <hr>
+      <mat-card-footer>
+      <button mat-raised-button value="submit" [disabled]="!myForm.form.valid"> Create Book </button>
+        </mat-card-footer>
+    </form>
+  </mat-card>
+</div>

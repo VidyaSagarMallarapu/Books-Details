@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+<mat-toolbar> Book Details </mat-toolbar>
+
+<div *ngIf="!title" class="spinner">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div class="details-book" *ngIf="title">
+  <mat-card>
+    <mat-card-title>
+      <span class="md-headline">{{title}}</span>
+    </mat-card-title>
+    <mat-card-content>
+      <div   class="md-unstyled-image">
+      
+        <img src="{{imageUrl}}" />
+      </div>
+      <div style="float:unset">
+        <mat-list>
+          <mat-list-item> <i class="material-icons">person_pin</i> Author:&nbsp;&nbsp;<b> {{author}}</b> </mat-list-item>
+          <mat-list-item> <i class="material-icons">date_range</i> Date Added:&nbsp;&nbsp;<b> {{dateadded}}</b> </mat-list-item>
+          <mat-list-item *ngIf="dateread"> <i class="material-icons">date_range</i> Date Read:&nbsp;&nbsp;<b> {{dateread}}</b> </mat-list-item>
+          <mat-list-item> <i class="material-icons">attach_money</i> Price:&nbsp;&nbsp;<b> {{price}}</b></mat-list-item>
+          <mat-list-item *ngIf="rate"> <i class="material-icons">star</i> Rate:&nbsp;&nbsp;<b>{{rate}}</b></mat-list-item>
+        </mat-list>
+      </div>
+      <hr>
+      <mat-toolbar>Description</mat-toolbar>
+      {{description}}
+      <p *ngIf="!description"> No description for this book! </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button [routerLink]="['/home']" mat-raised-button skipLocationChange> <i class="material-icons">view_module</i>Home  </button>
+      <button [routerLink]="['/books']" mat-raised-button skipLocationChange> <i class="material-icons">view_module</i> All Books </button>
+      <button [routerLink]="['/edit-book/'+id]" mat-raised-button class="editButton" skipLocationChange> <i class="material-icons">mode_edit</i> Edit </button>
+      <button [routerLink]="['/delete-book/'+id]" skipLocationChange mat-raised-button color="warn" > <i class="material-icons">delete_sweep</i> Delete </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
